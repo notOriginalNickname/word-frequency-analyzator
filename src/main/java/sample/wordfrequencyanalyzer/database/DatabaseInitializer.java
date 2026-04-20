@@ -13,7 +13,9 @@ public class DatabaseInitializer {
     public static void initialize() {
         createWordsTable();
         createPromptsTable();
+        insertDefaultPrompts();
     }
+
 
     private static void createWordsTable() {
         String sql = """
@@ -30,6 +32,8 @@ public class DatabaseInitializer {
         executeSQL(sql);
     }
 
+
+
     public static boolean isTablesExists() {
 
         if (tableExists("words")) {
@@ -42,13 +46,12 @@ public class DatabaseInitializer {
 
     private static void createPromptsTable() {
         String sql = """
-            CREATE TABLE IF NOT EXISTS prompts (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                description TEXT,
-                content TEXT NOT NULL
-            )
-            """;
+        CREATE TABLE IF NOT EXISTS prompts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            content TEXT NOT NULL
+        )
+        """;
 
         executeSQL(sql);
     }
@@ -81,6 +84,29 @@ public class DatabaseInitializer {
         } catch (SQLException e) {
             logger.error("Ошибка проверки таблицы {}, причина: {}", tableName, e.getMessage());
             return false;
+        }
+    }
+
+
+    // Дефолтный промпт
+    private static void insertDefaultPrompts() {
+        String checkSql = "SELECT COUNT(*) FROM prompts";
+
+        try (Statement stmt = DatabaseManager.getInstance().getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(checkSql)) {
+
+            if (rs.next() && rs.getInt(1) == 0) {
+                String insertSql = """
+                INSERT INTO prompts (name, content) VALUES 
+                ('Дефолтный промпт','Приведи, пожалуйста, для следующих слов по 5 предложений в контексте, чтобы я при изучении мог легче их запоминать. Если слово имеет несколько распространённых значений делай на каждое по 5 предложений и подписывай это. По ИМЕННО по такому паттерну: "предложение на русском с **выделенным изучаемым словом** -- a sentence in english with **the highlighted word under study**"
+                  ** этим (двумя звёздочками) как раз выделено изучаемое слово, выделять нужно не всё предложение, а ТОЛЬКО изучаемое слово. Пример подобного предложения "Я играю в **футбол** -- I am playing **football**" football в данном предложении изучаемое слово. Первое предложение должно быть русским переводом с русским выделенным словом, а второе на английском и разделяться " -- ". Выделять изучаемое слово нужно подобным образом **слово**. Изучаемое слово должно быть на русском в русском предложении и на английском в английском. Если у слова несколько значений давай также строку, где я могу скопировать все значения слова через слеш (/) в таком виде " - **тест/тест/тест**"
+                  Слова для изучения:')
+                """;
+                stmt.execute(insertSql);
+                logger.debug("Дефолтный промпт успешно добавлен в БД");
+            }
+        } catch (SQLException e) {
+            logger.error("Ошибка при вставке дефолтного промпта", e);
         }
     }
 }
