@@ -1,0 +1,19 @@
+.navigation-bar {
+    -fx-background-color: #f4f4f4;
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+}
+
+.navigation-label {
+    -fx-padding: 1px 2px;
+    -fx-cursor: hand;
+    -fx-font-size: 24px;
+    -fx-text-fill: -color-blue-primary;
+}
+
+.navigation-label:hover {
+    -fx-text-fill: -color-blue-hover;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-transition: all 0.6s ease;
+}

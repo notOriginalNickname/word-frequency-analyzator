@@ -1,0 +1,85 @@
+/* ===== TABLEVIEW ===== */
+.stat-table {
+    -fx-background-color: transparent;
+    -fx-border-color: -color-gray-medium;
+    -fx-border-width: 1px;
+    -fx-padding: 0;
+
+    /* Убираем стандартные градиенты */
+    -fx-background-insets: 0;
+}
+
+/* Заголовки колонок */
+.stat-table .column-header-background {
+    -fx-background-color: -color-gray-light;
+    -fx-padding: 0;
+}
+
+.stat-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent -color-gray-medium transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 10px;
+}
+
+
+/* Текст в заголовке */
+.stat-table .column-header .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-text-primary;
+    -fx-alignment: center-left;
+}
+
+/* Ячейки таблицы */
+.table-cell {
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -color-text-primary;
+    -fx-border-color: transparent transparent -color-gray-light transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Чередование цветов строк (опционально) */
+.table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+.table-row-cell:even {
+    -fx-background-color: -color-gray-light;
+}
+
+/* Выделенная строка */
+.table-row-cell:selected {
+    -fx-background-color: derive(-color-blue-light, 60%);
+}
+
+/* Эффект при наведении */
+.table-row-cell:hover {
+    -fx-background-color: derive(-color-blue-light, 10%);
+
+}
+
+
+.table-row-cell:pressed {
+    -fx-background-color: -color-blue-light;
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+    -fx-transition: all 0.6s ease;
+}
+
+/* Убираем стандартные полосы прокрутки (оставляем тонкие) */
+.stat-table .scroll-bar:vertical,
+.stat-table .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+}
+
+.stat-table .scroll-bar .thumb {
+    -fx-background-color: -color-gray-medium;
+}
+
+.stat-table .scroll-bar .thumb:hover {
+    -fx-background-color: -color-gray-dark;
+}

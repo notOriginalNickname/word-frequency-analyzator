@@ -1,0 +1,11 @@
+.button-save {
+    -fx-background-color: -color-green-primary;
+}
+
+.button-save:hover {
+    -fx-background-color: -color-green-hover;
+}
+
+.button-save:pressed {
+    -fx-background-color: -color-green-pressed;
+}

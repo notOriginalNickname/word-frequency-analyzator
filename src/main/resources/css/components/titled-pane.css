@@ -1,0 +1,42 @@
+/* ===== TITLEDPANE ===== */
+.titled-pane {
+    -fx-border-width: 1px;
+    -fx-border-color: -color-gray-medium;
+}
+
+/* Заголовок */
+.titled-pane > .title {
+    -fx-background-color: -color-gray-light;
+    -fx-padding: 10px;
+}
+
+/* Текст заголовка - обрати внимание на -fx-fill вместо -fx-text-fill */
+.titled-pane > .title > .text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-fill: -color-text-primary;
+}
+
+/* Стрелочка */
+.titled-pane > .title > .arrow-button .arrow {
+    -fx-background-color: -color-blue-primary;
+}
+
+/* Эффект при наведении на заголовок */
+.titled-pane > .title:hover {
+    -fx-background-color: -color-gray-medium;
+}
+
+/* Содержимое */
+.titled-pane > .content {
+    -fx-background-color: white;
+    -fx-border-color: -color-gray-medium;
+    -fx-border-width: 1px;
+    -fx-padding: 15px;
+}
+
+/* Для лейбла внутри содержимого (если хочешь стилизовать) */
+.titled-pane > .content .label {
+    -fx-text-fill: -color-text-primary;
+    -fx-font-size: 14px;
+}
