@@ -1,0 +1,11 @@
+.button-process {
+    -fx-background-color: -color-blue-primary;
+}
+
+.button-process:hover {
+    -fx-background-color: -color-blue-hover;
+}
+
+.button-process:pressed {
+    -fx-background-color: -color-blue-pressed;
+}

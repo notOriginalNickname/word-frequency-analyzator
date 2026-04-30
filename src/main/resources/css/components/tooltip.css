@@ -1,0 +1,16 @@
+.tooltip {
+    -fx-font-size: 14px;
+    -fx-background-color: derive(-color-blue-light, 90%);
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
+    -fx-text-fill: -color-text-secondary;
+
+    -fx-show-delay: 300ms;      /* Задержка появления */
+    -fx-show-duration: 2s;      /* Время показа */
+    -fx-hide-delay: 300ms;      /* Задержка скрытия */
+}
+
+.tooltip .label {
+    -fx-text-fill: -color-text-secondary;
+    -fx-font-weight: bold;
+}

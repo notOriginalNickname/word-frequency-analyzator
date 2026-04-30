@@ -1,0 +1,11 @@
+.button-clear {
+    -fx-background-color: -color-red-primary;
+}
+
+.button-clear:hover {
+    -fx-background-color: -color-red-hover;
+}
+
+.button-clear:pressed {
+    -fx-background-color: -color-red-pressed;
+}
