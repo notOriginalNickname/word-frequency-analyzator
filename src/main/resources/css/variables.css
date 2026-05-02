@@ -1,0 +1,40 @@
+.root {
+    /* Синяя гамма */
+    -color-blue-primary: #2196F3;
+    -color-blue-hover: #1976D2;
+    -color-blue-pressed: #0D47A1;
+    -color-blue-light: #64B5F6;
+
+    /* Зеленая гамма (для других кнопок) */
+    -color-green-primary: #4CAF50;
+    -color-green-hover: #45a049;
+    -color-green-pressed: #3d8b40;
+
+    /* Красная гамма (для опасных действий) */
+    -color-red-primary: #f44336;
+    -color-red-hover: #d32f2f;
+    -color-red-pressed: #b71c1c;
+
+
+    /* Серые оттенки */
+    -color-gray-light: #f4f4f4;
+    -color-gray-medium: #e0e0e0;
+    -color-gray-dark: #9e9e9e;
+    -color-text-primary: #333333;
+    -color-text-secondary: #666666;
+
+    /* Цвета для навигации */
+    -color-nav-bg: #f4f4f4;
+    -color-nav-hover: #e0e0e0;
+
+    /* Размеры и отступы */
+    -spacing-small: 5px;
+    -spacing-medium: 10px;
+    -spacing-large: 20px;
+
+    /* Радиусы скругления */
+    -radius-small: 5px;
+    -radius-medium: 10px;
+    -radius-large: 25px;
+    -radius-circle: 50px;
+}

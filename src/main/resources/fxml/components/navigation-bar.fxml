@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<HBox styleClass="navigation-bar"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.wordfrequencyanalyzer.controllers.NavigationController">
+
+
+    <Label styleClass="navigation-label" text="🏠" onMouseClicked="#handleMain" fx:id="homeLabel">
+        <tooltip>
+            <Tooltip text="Запись слов"/>
+        </tooltip>
+    </Label>
+
+    <Label styleClass="navigation-label" text="📊" onMouseClicked="#handleShowStatistics">
+        <tooltip>
+            <Tooltip text="Статистика"/>
+        </tooltip>
+    </Label>
+
+    <Label styleClass="navigation-label" text="⚙" onMouseClicked="#handleGoToPrompts">
+        <tooltip>
+            <Tooltip text="Промпты"/>
+        </tooltip>
+    </Label>
+
+<!--    <Label styleClass="navigation-label" text="⚙️ Настройки" onMouseClicked="#handleShowSettings"/>-->
+
+    <Region HBox.hgrow="ALWAYS"/>
+
+
+</HBox>
