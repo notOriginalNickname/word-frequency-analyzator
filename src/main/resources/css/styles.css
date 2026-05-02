@@ -1,0 +1,19 @@
+@import url("variables.css");
+
+@import url("components/navigation-bar.css");
+@import url("components/buttons/process.css");
+@import url("components/buttons/clear.css");
+@import url("components/buttons/save.css");
+@import url("components/text-area.css");
+@import url("components/titled-pane.css");
+@import url("components/stat-table.css");
+@import url("components/buttons/base-button.css");
+@import url("components/tooltip.css");
+
+@import url("pages/common.css");
+
+/* Основные отступы для контента */
+.content-padding {
+    -fx-padding: 10px 20px 20px 20px;
+}
+

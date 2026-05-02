@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox styleClass="content-padding" spacing="10" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.wordfrequencyanalyzer.controllers.MainController">
+
+    <!-- Navigation -->
+    <fx:include source="../components/navigation-bar.fxml" fx:id="navigationBar"/>
+
+
+    <Label styleClass="page-title" text="Ввод данных"/>
+
+    <TextArea styleClass="text-area-material" fx:id="inputArea" promptText="Введите слова (каждое с новой строки)..."
+              VBox.vgrow="ALWAYS" prefRowCount="10"/>
+
+    <HBox spacing="10">
+        <Button styleClass="button-process" fx:id="processButton" text="Обработать" onAction="#handleProcessWords"/>
+        <Button styleClass="button-clear" fx:id="clearButton" text="Очистить" onAction="#handleClear"/>
+    </HBox>
+
+    <TitledPane styleClass="titled-pane" text="Результат" expanded="false">
+        <VBox>
+            <Label fx:id="resultLabel" text="Готов к работе..."/>
+        </VBox>
+    </TitledPane>
+
+</VBox>
