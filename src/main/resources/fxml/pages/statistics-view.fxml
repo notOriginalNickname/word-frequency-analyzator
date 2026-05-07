@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="content-padding" spacing="10" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.wordfrequencyanalyzer.controllers.StatisticsController"
+      prefHeight="600" prefWidth="800">
+
+    <!-- Navigation -->
+    <fx:include source="../components/navigation-bar.fxml" fx:id="navigationBar"/>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label styleClass="page-title" text="Статистика слов" HBox.hgrow="ALWAYS"/>
+
+<!--        <Button fx:id="refreshButton" text="Обновить" onAction="#handleRefresh"/>-->
+    </HBox>
+
+    <TableView styleClass="stat-table" fx:id="wordsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn styleClass="label" fx:id="wordsColumn" text="Слова"/>
+            <TableColumn styleClass="label" fx:id="mentionsColumn" text="Упоминаний"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <fx:include source="../components/prompt-selector.fxml" fx:id="promptSelector"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="copyButton" text="Копировать" onAction="#copySelectedRows" styleClass="button-process"/>
+        <Button fx:id="copyWithPromptButton" text="Копировать с промптом" onAction="#copyWithPrompt" styleClass="button-process"/>
+    </HBox>
+
+    <Label styleClass="hint-label" text="Слова в группах объединены в одну строку"/>
+
+</VBox>
