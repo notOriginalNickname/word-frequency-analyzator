@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,11 +20,13 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        primaryStage.getIcons().add(new Image("icon.png"));
         Router router = Router.getInstance();
         router.init(primaryStage);
 
         Parent mainPage = router.loadPage("main", "/fxml/pages/main-view.fxml");
         Parent statisticsPage = router.loadPage("statistics", "/fxml/pages/statistics-view.fxml");
+        Parent promptsPage = router.loadPage("prompts", "/fxml/pages/prompts-view.fxml");
 
        try {
             // Инициализируем БД
@@ -37,6 +40,7 @@ public class MainApp extends Application {
             e.printStackTrace();
 
         }
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pages/main-view.fxml"));
         Scene scene = new Scene(mainPage, 800, 600);
