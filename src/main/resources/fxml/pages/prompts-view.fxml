@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="content-padding" spacing="10" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.wordfrequencyanalyzer.controllers.PromptsController"
+      prefHeight="500" prefWidth="600">
+
+    <!-- Navigation -->
+    <fx:include source="../components/navigation-bar.fxml" fx:id="navigationBar"/>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label styleClass="page-title" text="Управление промптами" HBox.hgrow="ALWAYS"/>
+        <Button text="Новый" onAction="#handleNewPrompt" styleClass="button-process"/>
+    </HBox>
+
+    <ListView fx:id="promptsListView" VBox.vgrow="ALWAYS"/>
+
+    <!-- Панель редактирования -->
+    <VBox fx:id="editPanel" spacing="10" visible="false" managed="false">
+        <Separator/>
+        <Label text="Редактирование промпта" style="-fx-font-weight: bold;"/>
+
+        <TextField fx:id="nameField" promptText="Название промпта"/>
+
+        <TextArea fx:id="contentArea" promptText="Текст промпта" prefRowCount="25"/>
+
+        <HBox spacing="10">
+            <Button text="Сохранить" onAction="#handleSave" styleClass="button-save"/>
+            <Button text="Отмена" onAction="#handleCancel" styleClass="button-process"/>
+            <Button text="Удалить" onAction="#handleDelete" styleClass="button-clear"/>
+        </HBox>
+    </VBox>
+
+</VBox>
