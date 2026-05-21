@@ -10,6 +10,7 @@ module sample.wordfrequencyanalyzer {
     // Открываем пакеты для рефлексии (нужно для FXML)
     opens sample.wordfrequencyanalyzer.controllers to javafx.fxml;
     opens sample.wordfrequencyanalyzer.models to javafx.base;
+    exports sample.wordfrequencyanalyzer.utils;
 
     // Требуем необходимые модули
     requires javafx.controls;
