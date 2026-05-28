@@ -3,20 +3,20 @@ package sample.wordfrequencyanalyzer.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import sample.wordfrequencyanalyzer.utils.PathUtil;
 
 public class DatabaseManager {
     private static DatabaseManager instance;
     private Connection connection;
 
     // Путь к файлу БД в папке пользователя
-    private static final String DATABASE_URL = "jdbc:sqlite:" +
-            System.getProperty("user.home") + "/WordAnalyzer/vocab.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:" + PathUtil.getDbPath();
 
     private DatabaseManager() {
         try {
             // Создаем папку, если её нет
             java.nio.file.Files.createDirectories(
-                    java.nio.file.Paths.get(System.getProperty("user.home") + "/WordAnalyzer")
+                    java.nio.file.Paths.get(PathUtil.getDbDirectory())
             );
 
             // Подключаемся (файл создастся автоматически)
@@ -57,4 +57,6 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
+
+ 
 }
