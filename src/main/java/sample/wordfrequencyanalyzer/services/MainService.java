@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import sample.wordfrequencyanalyzer.controllers.MainController;
 import sample.wordfrequencyanalyzer.utils.BackupWordsLogs;
 import sample.wordfrequencyanalyzer.utils.WordService;
+import sample.wordfrequencyanalyzer.utils.PathUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +29,7 @@ public class MainService {
             return;
         }
 
-        BackupWordsLogs.appendToFile(System.getProperty("user.home") + "/WordAnalyzer/backup_words.txt",
+        BackupWordsLogs.appendToFile( PathUtil.getBackupWordsPath(),
                 text, "UTF-8");
         List<String> lines = Arrays.asList(text.split("\\n"));
         logger.debug("Получено строк для обработки: {}", lines.size());

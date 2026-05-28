@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.wordfrequencyanalyzer.controllers.MainController;
 import sample.wordfrequencyanalyzer.database.DatabaseInitializer;
+import sample.wordfrequencyanalyzer.utils.PathUtil;
 import sample.wordfrequencyanalyzer.utils.Router;
 
 
@@ -31,9 +32,8 @@ public class MainApp extends Application {
        try {
             // Инициализируем БД
             DatabaseInitializer.initialize();
-            logger.debug("База данных инициализирована");
             logger.info("База данных инициализирована успешно в: " +
-                    System.getProperty("user.home") + "\\WordAnalyzer\\vocab.db");
+                    PathUtil.getDbPath());
 
         } catch (Exception e) {
             logger.error("Ошибка при инициализации: {}", e.getMessage());
